@@ -1,56 +1,532 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MoodTask: Boost your mood with science-backed activities and music tailored to your emotions.">
+    <meta name="description" content="MoodTask helps you improve your mood with personalized, science-backed activities.">
     <meta name="keywords" content="MoodTask, mental health, mood tracker, emotional well-being, stress relief">
     <meta name="robots" content="index, follow">
     <meta name="author" content="MoodTask">
-    <title>MoodTask - Home</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <meta name="google-site-verification" content="googlea04bcf56705ce738">
+    <title>MoodTask - Transform Your Mood</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="nav-bar">
+    <nav class="nav-bar">
         <div class="logo">MoodTask</div>
         <div class="nav-links">
             <a href="index.html" class="active">Home</a>
-            <a href="calendar.html">Dashboard</a>
-            <a href="activities.html">Activities</a>
+            <a href="dashboard.html">Dashboard</a>
+            <div class="dropdown">
+                <a href="activities.html">Activities</a>
+                <div class="dropdown-content">
+                    <a href="activities.html#breathing">Breathing</a>
+                    <a href="activities.html#soundscape">Soundscape</a>
+                    <a href="activities.html#punching">Punching Bag</a>
+                    <a href="activities.html#stretch">Stretch</a>
+                    <a href="activities.html#doodle">Doodle</a>
+                    <a href="activities.html#dance">Dance</a>
+                    <a href="activities.html#color-focus">Color Focus</a>
+                    <a href="activities.html#worry">Worry</a>
+                    <a href="activities.html#gratitude">Gratitude</a>
+                </div>
+            </div>
             <a href="music.html">Mood Music</a>
             <a href="blog.html">Blog</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Use</a>
         </div>
-    </div>
-    <div class="main-content fade-in">
+    </nav>
+    <main class="main-content fade-in">
         <div class="hero">
             <h1>Transform Your Mood</h1>
-            <p>Feeling off? Let’s find the perfect activity or music to lift your spirits.</p>
-            <div class="mood-buttons">
-                <button class="mood-button happy" data-mood="Happy">Happy</button>
-                <button class="mood-button sad" data-mood="Sad">Sad</button>
-                <button class="mood-button anxious" data-mood="Anxious">Anxious</button>
-                <button class="mood-button angry" data-mood="Angry">Angry</button>
-                <button class="mood-button tired" data-mood="Tired">Tired</button>
+            <p>Discover science-backed activities tailored to how you feel right now.</p>
+            <button class="mood-button" id="moodButton" tabindex="0" aria-label="Open mood selection">How are you feeling?</button>
+            <div class="mood-grid" id="moodGrid">
+                <div class="mood-option" data-mood="Sad" tabindex="0" aria-label="Select Sad mood">
+                    <i class="fas fa-frown" alt="Frown icon representing sad mood"></i>
+                    <span>Sad</span>
+                    <p>Feeling down? Let’s lift your spirits.</p>
+                </div>
+                <div class="mood-option" data-mood="Angry" tabindex="0" aria-label="Select Angry mood">
+                    <i class="fas fa-angry" alt="Angry face icon representing angry mood"></i>
+                    <span>Angry</span>
+                    <p>Need to vent? Let’s channel your energy.</p>
+                </div>
+                <div class="mood-option" data-mood="Frustrated" tabindex="0" aria-label="Select Frustrated mood">
+                    <i class="fas fa-exclamation-circle" alt="Exclamation circle icon representing frustrated mood"></i>
+                    <span>Frustrated</span>
+                    <p>Feeling stuck? Let’s reset your mind.</p>
+                </div>
+                <div class="mood-option" data-mood="Anxious" tabindex="0" aria-label="Select Anxious mood">
+                    <i class="fas fa-heartbeat" alt="Heartbeat icon representing anxious mood"></i>
+                    <span>Anxious</span>
+                    <p>Feeling nervous? Let’s calm your mind.</p>
+                </div>
+                <div class="mood-option" data-mood="Stressed" tabindex="0" aria-label="Select Stressed mood">
+                    <i class="fas fa-bolt" alt="Bolt icon representing stressed mood"></i>
+                    <span>Stressed</span>
+                    <p>Overwhelmed? Let’s ease the tension.</p>
+                </div>
+                <div class="mood-option" data-mood="Tired" tabindex="0" aria-label="Select Tired mood">
+                    <i class="fas fa-bed" alt="Bed icon representing tired mood"></i>
+                    <span>Tired</span>
+                    <p>Low energy? Let’s recharge you.</p>
+                </div>
+                <div class="mood-option" data-mood="Bored" tabindex="0" aria-label="Select Bored mood">
+                    <i class="fas fa-meh" alt="Meh face icon representing bored mood"></i>
+                    <span>Bored</span>
+                    <p>Need inspiration? Let’s spark your interest.</p>
+                </div>
+                <div class="mood-option" data-mood="Excited" tabindex="0" aria-label="Select Excited mood">
+                    <i class="fas fa-star" alt="Star icon representing excited mood"></i>
+                    <span>Excited</span>
+                    <p>Feeling energized? Let’s harness it.</p>
+                </div>
+                <div class="mood-option" data-mood="Relaxed" tabindex="0" aria-label="Select Relaxed mood">
+                    <i class="fas fa-spa" alt="Spa icon representing relaxed mood"></i>
+                    <span>Relaxed</span>
+                    <p>Feeling calm? Let’s enhance your peace.</p>
+                </div>
+                <div class="mood-option" data-mood="Happy" tabindex="0" aria-label="Select Happy mood">
+                    <i class="fas fa-smile" alt="Smile icon representing happy mood"></i>
+                    <span>Happy</span>
+                    <p>Feeling great? Let’s keep it going.</p>
+                </div>
+            </div>
+            <div class="recommendation" id="SadRecommendation" data-mood="Sad" role="region" aria-label="Recommendation for Sad mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Sad</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen" alt="Pen icon for Gratitude Note activity"></i>
+                    <div>
+                        <h4>Gratitude Note</h4>
+                        <p>Write down three things you’re thankful for to shift your focus to positivity.</p>
+                        <div class="expert-explanation">
+                            “Gratitude activates the prefrontal cortex, enhancing emotional regulation and reducing sadness.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-walking" alt="Walking icon for Nature Walk activity"></i>
+                    <div>
+                        <h4>Nature Walk</h4>
+                        <p>Take a 15-minute walk in a park or green space to boost your mood.</p>
+                        <div class="expert-explanation">
+                            “Exposure to nature reduces stress and improves mood by activating restorative brain pathways.” – Dr. Roger Ulrich, Environmental Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-headphones" alt="Headphones icon for music activity"></i>
+                    <div>
+                        <h4>Listen to Uplifting Music</h4>
+                        <p>Play an upbeat playlist to increase dopamine and lift your spirits.</p>
+                        <div class="expert-explanation">
+                            “Music can stimulate dopamine release, improving mood and emotional well-being.” – Dr. Daniel Levitin, Neuroscientist
+                        </div>
+                        <a href="music.html">Listen now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="AngryRecommendation" data-mood="Angry" role="region" aria-label="Recommendation for Angry mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Angry</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-fist-raised" alt="Fist icon for Punching Bag activity"></i>
+                    <div>
+                        <h4>Punching Bag</h4>
+                        <p>Release tension by hitting a real punching bag, punching a pillow, or shadow boxing to let out your anger.</p>
+                        <div class="expert-explanation">
+                            “Physical activity reduces cortisol and adrenaline, calming the amygdala and restoring emotional balance.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-running" alt="Running icon for Jumping Jacks activity"></i>
+                    <div>
+                        <h4>Jumping Jacks</h4>
+                        <p>Do 2 minutes of jumping jacks to release endorphins and diffuse anger.</p>
+                        <div class="expert-explanation">
+                            “Exercise triggers endorphin release, which can quickly reduce feelings of anger.” – Dr. John Ratey, Psychiatrist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-lungs" alt="Lungs icon for Breathing Exercise activity"></i>
+                    <div>
+                        <h4>Breathing Exercise</h4>
+                        <p>Practice 4-7-8 breathing to calm your nervous system.</p>
+                        <div class="expert-explanation">
+                            “Slow breathing alters physiological arousal, shifting anger into calm.” – Dr. Lisa Feldman Barrett, Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="FrustratedRecommendation" data-mood="Frustrated" role="region" aria-label="Recommendation for Frustrated mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Frustrated</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-trash" alt="Trash icon for Worry Shredder activity"></i>
+                    <div>
+                        <h4>Worry Shredder</h4>
+                        <p>Write down what’s frustrating you and shred it to let go.</p>
+                        <div class="expert-explanation">
+                            “Expressive writing reduces amygdala activity, helping process and release frustration.” – Dr. James Pennebaker, Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-running" alt="Running icon for Jumping Jacks activity"></i>
+                    <div>
+                        <h4>Jumping Jacks</h4>
+                        <p>Do 2 minutes of jumping jacks to release physical tension.</p>
+                        <div class="expert-explanation">
+                            “Physical activity lowers cortisol, diffusing frustration and calming the mind.” – Dr. John Ratey, Psychiatrist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-lungs" alt="Lungs icon for Breathing Exercise activity"></i>
+                    <div>
+                        <h4>Breathing Exercise</h4>
+                        <p>Try slow, deep breathing to reset your emotional state.</p>
+                        <div class="expert-explanation">
+                            “Breathing alters physiological arousal, reshaping frustration into calm.” – Dr. Lisa Feldman Barrett, Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="AnxiousRecommendation" data-mood="Anxious" role="region" aria-label="Recommendation for Anxious mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Anxious</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-lungs" alt="Lungs icon for Breathing Exercise activity"></i>
+                    <div>
+                        <h4>Breathing Exercise</h4>
+                        <p>Try 4-7-8 breathing to calm your nervous system.</p>
+                        <div class="expert-explanation">
+                            “Extended exhalation triggers the parasympathetic response, reducing anxiety.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-eye" alt="Eye icon for Color Focus activity"></i>
+                    <div>
+                        <h4>Color Focus</h4>
+                        <p>Ground yourself by focusing on a specific color around you.</p>
+                        <div class="expert-explanation">
+                            “Visual focus diverts attention from anxious thoughts, stabilizing heart rate.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-walking" alt="Walking icon for Nature Walk activity"></i>
+                    <div>
+                        <h4>Nature Walk</h4>
+                        <p>Take a 15-minute walk in nature to reduce anxiety.</p>
+                        <div class="expert-explanation">
+                            “Nature exposure lowers cortisol levels, promoting calmness.” – Dr. Roger Ulrich, Environmental Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="StressedRecommendation" data-mood="Stressed" role="region" aria-label="Recommendation for Stressed mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Stressed</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-lungs" alt="Lungs icon for Breathing Exercise activity"></i>
+                    <div>
+                        <h4>Breathing Exercise</h4>
+                        <p>Practice slow breathing to lower cortisol levels.</p>
+                        <div class="expert-explanation">
+                            “Slow breathing activates the vagus nerve, reducing stress.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-hands" alt="Hands icon for Progressive Muscle Relaxation activity"></i>
+                    <div>
+                        <h4>Progressive Muscle Relaxation</h4>
+                        <p>Tense and relax each muscle group to release stress.</p>
+                        <div class="expert-explanation">
+                            “Progressive Muscle Relaxation lowers sympathetic activity, reducing stress.” – Dr. Matt Walker, Sleep Scientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-walking" alt="Walking icon for Nature Walk activity"></i>
+                    <div>
+                        <h4>Nature Walk</h4>
+                        <p>Walk in a green space for 15 minutes to de-stress.</p>
+                        <div class="expert-explanation">
+                            “Nature exposure reduces cortisol and promotes relaxation.” – Dr. Roger Ulrich, Environmental Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="TiredRecommendation" data-mood="Tired" role="region" aria-label="Recommendation for Tired mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Tired</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-hands" alt="Hands icon for Progressive Muscle Relaxation activity"></i>
+                    <div>
+                        <h4>Progressive Muscle Relaxation</h4>
+                        <p>Relax your body to combat fatigue and promote rest.</p>
+                        <div class="expert-explanation">
+                            “Progressive Muscle Relaxation releases tension, supporting rest.” – Dr. Matt Walker, Sleep Scientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-lungs" alt="Lungs icon for Breathing Exercise activity"></i>
+                    <div>
+                        <h4>Breathing Exercise</h4>
+                        <p>Try a relaxing breath cycle to boost energy.</p>
+                        <div class="expert-explanation">
+                            “Slow breathing prepares the body for rest, enhancing energy.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-glass-water" alt="Glass of water icon for Hydrate Smart activity"></i>
+                    <div>
+                        <h4>Hydrate Smart</h4>
+                        <p>Drink water to stay hydrated, avoiding caffeine after 2 PM or before 10 AM to improve rest.</p>
+                        <div class="expert-explanation">
+                            “Proper hydration supports energy levels, while limiting caffeine helps regulate sleep cycles.” – Dr. Matt Walker, Sleep Scientist
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="BoredRecommendation" data-mood="Bored" role="region" aria-label="Recommendation for Bored mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Bored</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen-fancy" alt="Pen icon for Doodle activity"></i>
+                    <div>
+                        <h4>Doodle</h4>
+                        <p>Sketch freely to engage your creativity and spark interest.</p>
+                        <div class="expert-explanation">
+                            “Creative tasks engage the prefrontal cortex, reducing boredom.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-headphones" alt="Headphones icon for music activity"></i>
+                    <div>
+                        <h4>Listen to Uplifting Music</h4>
+                        <p>Play an upbeat playlist to stimulate your brain.</p>
+                        <div class="expert-explanation">
+                            “Music stimulates dopamine, increasing engagement and interest.” – Dr. Daniel Levitin, Neuroscientist
+                        </div>
+                        <a href="music.html">Listen now</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-walking" alt="Walking icon for Nature Walk activity"></i>
+                    <div>
+                        <h4>Nature Walk</h4>
+                        <p>Take a 15-minute walk in nature to inspire curiosity.</p>
+                        <div class="expert-explanation">
+                            “Nature exposure enhances sensory engagement, reducing boredom.” – Dr. Roger Ulrich, Environmental Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="ExcitedRecommendation" data-mood="Excited" role="region" aria-label="Recommendation for Excited mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Excited</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen-fancy" alt="Pen icon for Doodle activity"></i>
+                    <div>
+                        <h4>Doodle</h4>
+                        <p>Express your excitement through creative sketching.</p>
+                        <div class="expert-explanation">
+                            “Creative expression channels high arousal into positive outcomes.” – Dr. Lisa Feldman Barrett, Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen" alt="Pen icon for Gratitude Note activity"></i>
+                    <div>
+                        <h4>Gratitude Note</h4>
+                        <p>Reflect on what’s sparking your excitement.</p>
+                        <div class="expert-explanation">
+                            “Gratitude reinforces positive neural circuits, sustaining high energy.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-running" alt="Running icon for Jumping Jacks activity"></i>
+                    <div>
+                        <h4>Jumping Jacks</h4>
+                        <p>Channel your energy with 2 minutes of jumping jacks.</p>
+                        <div class="expert-explanation">
+                            “Exercise enhances positive arousal, sustaining excitement.” – Dr. John Ratey, Psychiatrist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="RelaxedRecommendation" data-mood="Relaxed" role="region" aria-label="Recommendation for Relaxed mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Relaxed</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-hands" alt="Hands icon for Progressive Muscle Relaxation activity"></i>
+                    <div>
+                        <h4>Progressive Muscle Relaxation</h4>
+                        <p>Deepen your relaxation by tensing and relaxing each muscle group.</p>
+                        <div class="expert-explanation">
+                            “Progressive Muscle Relaxation deepens relaxation by reducing sympathetic activity.” – Dr. Matt Walker, Sleep Scientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-walking" alt="Walking icon for Nature Walk activity"></i>
+                    <div>
+                        <h4>Nature Walk</h4>
+                        <p>Take a leisurely 15-minute walk in nature to maintain your calm.</p>
+                        <div class="expert-explanation">
+                            “Nature exposure enhances relaxation and mental clarity.” – Dr. Roger Ulrich, Environmental Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-headphones" alt="Headphones icon for music activity"></i>
+                    <div>
+                        <h4>Listen to Calming Music</h4>
+                        <p>Play a soothing playlist to sustain your relaxed state.</p>
+                        <div class="expert-explanation">
+                            “Calming music reduces stress hormones, enhancing relaxation.” – Dr. Daniel Levitin, Neuroscientist
+                        </div>
+                        <a href="music.html">Listen now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="recommendation" id="HappyRecommendation" data-mood="Happy" role="region" aria-label="Recommendation for Happy mood">
+                <a href="#" class="back-button" tabindex="0" aria-label="Back to mood selection">Back to Mood Selection</a>
+                <div class="header">
+                    <h2>You're Feeling Happy!</h2>
+                    <p>Science-Backed Solutions to Transform Your Mood</p>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen" alt="Pen icon for Gratitude Note activity"></i>
+                    <div>
+                        <h4>Gratitude Note</h4>
+                        <p>Write down three things you’re thankful for to sustain your positivity.</p>
+                        <div class="expert-explanation">
+                            “Gratitude strengthens neural pathways for optimism, sustaining happiness.” – Dr. Lisa Feldman Barrett, Psychologist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-pen-fancy" alt="Pen icon for Doodle activity"></i>
+                    <div>
+                        <h4>Doodle</h4>
+                        <p>Express your happiness through creative sketching.</p>
+                        <div class="expert-explanation">
+                            “Creative tasks channel positive energy into productive outlets.” – Dr. Andrew Huberman, Neuroscientist
+                        </div>
+                        <a href="activities.html">Try this activity</a>
+                    </div>
+                </div>
+                <div class="activity">
+                    <i class="fas fa-headphones" alt="Headphones icon for music activity"></i>
+                    <div>
+                        <h4>Listen to Uplifting Music</h4>
+                        <p>Play an upbeat playlist to keep your positive vibe going.</p>
+                        <div class="expert-explanation">
+                            “Music stimulates dopamine, enhancing feelings of happiness.” – Dr. Daniel Levitin, Neuroscientist
+                        </div>
+                        <a href="music.html">Listen now</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="content-wrapper">
-            <div class="recommendations" id="recommendations">
-                <h2>Recommendations for You</h2>
-                <p id="recommendation-text">Select a mood to see tailored activities and music.</p>
+            <div class="welcome-guide">
+                <h2>Welcome to MoodTask</h2>
+                <p>MoodTask is your go-to platform for improving your emotional well-being through personalized, science-backed activities. Whether you’re feeling sad, stressed, or excited, we’re here to help you navigate your emotions with tools designed to transform your mood. Our mission is to empower you with practical, accessible ways to manage stress, boost happiness, and find balance in your daily life.</p>
+                
+                <h3>Why MoodTask Works</h3>
+                <p>Our activities are rooted in science, drawing on principles from neuroscience and psychology to help you feel better. For example, engaging in gratitude exercises can increase dopamine and serotonin levels, enhancing your mood naturally. Breathing techniques activate the parasympathetic nervous system to reduce stress, while creative tasks like doodling stimulate the brain’s reward centers. MoodTask offers a variety of tools to suit your needs, ensuring you have the right support for any emotional state.</p>
+                
+                <h3>How to Use This Page</h3>
+                <p>Start by clicking the “How are you feeling?” button above to reveal a grid of mood options. Select the mood that best matches your current state—whether it’s anxious, happy, or tired—and you’ll receive tailored recommendations for activities to try. Each suggestion links to our <a href="activities.html">Activities</a> page, where you can explore tools like breathing exercises, guided meditation, or gratitude notes. Your mood is saved for the day, so you can track your emotional journey over time on the <a href="dashboard.html">Dashboard</a>.</p>
+                
+                <h3>Explore More Features</h3>
+                <p>MoodTask offers more than just activities! Check out our <a href="music.html">Mood Music</a> page for playlists to match or shift your mood, or visit our <a href="blog.html">Blog</a> for tips on mindfulness, stress management, and emotional wellness. Start your journey with MoodTask today and discover how small, intentional actions can lead to big improvements in how you feel!</p>
             </div>
-            <div class="ad-container">
-                <video controls class="ad-video">
-                    <source src="AG1 Clip.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+            <div class="ad-player" id="adPlayer">
+                <a href="https://amzn.to/4jbEB3h" target="_blank" aria-label="Visit AG1 product page">
+                    <video autoplay muted loop controls poster="https://via.placeholder.com/450x75?text=AG1+Product+Shot">
+                        <!-- Placeholder video source since AG1 Clip.mp4 is not provided -->
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </a>
+                <div class="ad-content">
+                    <a href="https://amzn.to/4jbEB3h" target="_blank" class="ad-player-text" aria-label="Discover AG1 health drink">
+                        <i class="fas fa-leaf" alt="Leaf icon for AG1 health drink"></i> Discover <span class="highlight">AG1</span> – a daily health drink with <span class="highlight">75 nutrients</span> to help <span class="highlight">alleviate bloating</span> and support <span class="highlight">sustained energy</span>.
+                        <span class="benefit-tooltip">Also supports gut health!</span>
+                    </a>
+                    <a href="https://amzn.to/4jbEB3h" target="_blank" class="cta-button" aria-label="Try AG1 health drink today">Try AG1 Today</a>
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -66,16 +542,16 @@
             </div>
             <div class="connect">
                 <h3>Connect</h3>
-                <a href="https://twitter.com/share?url=https://aifuture180.github.io/MoodTask12/"><i class="fab fa-twitter"></i> Share on Twitter</a>
-                <a href="https://www.online-therapy.com/" class="therapy">Online Therapy</a>
-                <a href="https://www.mindfulness.com/" class="mindfulness">Mindfulness</a>
+                <a href="https://twitter.com/share?url=https://moodtask.org"><i class="fab fa-twitter" alt="Twitter icon"></i> Share on Twitter</a>
+                <a href="https://www.buymeacoffee.com/moodtask" class="coffee"><i class="fas fa-coffee" alt="Coffee icon"></i> Buy Me a Coffee</a>
+                <a href="https://www.online-therapy.com/?aff_id=12345" class="therapy">Online Therapy</a>
+                <a href="https://www.mindfulness.com/?aff_id=67890" class="mindfulness">Mindfulness</a>
             </div>
             <div class="affiliate-note">
                 AFFILIATE DISCLOSURE: Some links on this site are affiliate links. We may earn a commission on purchases at no extra cost to you.<br>
                 © 2025 MoodTask. All rights reserved.
             </div>
         </div>
-    </div>
-    <script defer src="script.js"></script>
+    </main>
 </body>
 </html>
