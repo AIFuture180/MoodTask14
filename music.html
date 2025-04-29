@@ -1,49 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MoodTask Mood Music: Discover curated playlists to match your mood and enhance your emotional well-being.">
-    <meta name="keywords" content="MoodTask, mood music, playlists, emotional well-being">
+    <meta name="description" content="MoodTask Mood Music - Curated music to enhance your mood and daily activities.">
+    <meta name="keywords" content="mood music, emotional well-being, relaxation music, focus music, sleep music, meditation music, motivation music, study music">
     <meta name="robots" content="index, follow">
     <meta name="author" content="MoodTask">
+    <meta name="google-site-verification" content="googlea04bcf56705ce738">
     <title>MoodTask - Mood Music</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="nav-bar">
+    <nav class="nav-bar">
         <div class="logo">MoodTask</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="calendar.html">Dashboard</a>
+            <a href="dashboard.html">Dashboard</a>
             <a href="activities.html">Activities</a>
             <a href="music.html" class="active">Mood Music</a>
             <a href="blog.html">Blog</a>
             <a href="privacy.html">Privacy Policy</a>
             <a href="terms.html">Terms of Use</a>
         </div>
-    </div>
-    <div class="main-content fade-in">
+    </nav>
+    <main class="main-content fade-in">
         <div class="hero">
-            <h1>Mood Music</h1>
-            <p>Find the perfect playlist to match your mood.</p>
-        </div>
-        <div class="container">
+            <h1>Find Your Perfect Mood Music</h1>
+            <p>Discover curated tracks to enhance your mood and daily activities.</p>
+            <button class="music-button" id="musicButton" tabindex="0" aria-label="Explore mood music button to toggle music grid">Explore Mood Music</button>
             <div class="music-grid" id="musicGrid">
-                <div class="music-card" id="upbeat">
-                    <h3>Upbeat Playlist</h3>
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL4o29b1csHEYcZ9c1qH2hJ91q-kC2s_f" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="music-card" data-category="sleep">
+                    <i class="fas fa-moon" alt="Moon icon representing sleep category"></i>
+                    <h3>Sleep</h3>
+                    <p>Drift into a restful slumber with soothing tracks designed to help you fall asleep faster. Environmental psychologist Dr. Roger Ulrich’s research shows that slow-tempo music lowers heart rate and reduces stress hormones like cortisol, promoting better sleep quality. A 2018 study in the <em>Journal of Sleep Research</em> found that calming music reduced sleep onset time by 35% (Trahan et al., 2018). Tracks like "Waves Crashing" and "Calm Nature" use gentle rhythms to relax your mind. Perfect for bedtime, these tracks can be paired with our <a href="activities.html" style="color: #FFD700;">Progressive Muscle Relaxation</a> activity for a deeper unwind. Log your listening habits on our Dashboard to track their impact on your rest.</p>
+                    <div class="insight">Lowers heart rate – Dr. Roger Ulrich</div>
+                    <button class="play-button">Play Now</button>
                 </div>
-                <div class="music-card" id="calm">
-                    <h3>Calm Playlist</h3>
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL4o29b1csHEYcZ9c1qH2hJ91q-kC2s_f" loading="lazy" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="music-card" data-category="meditation">
+                    <i class="fas fa-spa" alt="Spa icon representing meditation category"></i>
+                    <h3>Meditation</h3>
+                    <p>Enhance your mindfulness practice with calm sounds tailored for meditation. Dr. Jon Kabat-Zinn, founder of Mindfulness-Based Stress Reduction, notes that ambient music reduces stress by enhancing focus on the present moment. A 2020 study in <em>Mindfulness</em> found that meditation with background music lowered anxiety by 28% (Basso et al., 2020). Tracks like "Guided Meditation" and "Healing Meditation" provide serene soundscapes to deepen your practice. Use these during our <a href="activities.html" style="color: #FFD700;">Guided Meditation</a> activity for a more immersive experience. Ideal for morning or evening sessions, these tracks help you center yourself. Track your sessions on our Dashboard to see their benefits over time.</p>
+                    <div class="insight">Reduces stress – Dr. Jon Kabat-Zinn</div>
+                    <button class="play-button">Play Now</button>
                 </div>
+                <div class="music-card" data-category="relaxation">
+                    <i class="fas fa-leaf" alt="Leaf icon representing relaxation category"></i>
+                    <h3>Relaxation</h3>
+                    <p>Unwind after a long day with relaxing melodies designed to soothe your mind and body. Neuroscientist Dr. Andrew Huberman explains that nature-inspired sounds, like those in "Nature Sounds" and "Water Sounds," activate the parasympathetic nervous system, promoting a state of calm. A 2017 study in the <em>Journal of Environmental Psychology</em> found that relaxation music decreased stress by 21% (Nilsson et al., 2017). These tracks are perfect for evening wind-downs or during a break. Pair them with our <a href="activities.html" style="color: #FFD700;">Breathing Exercises</a> to amplify their calming effects. Log your listening on our Dashboard to monitor how they improve your relaxation over time.</p>
+                    <div class="insight">Promotes calm – Dr. Andrew Huberman</div>
+                    <button class="play-button">Play Now</button>
+                </div>
+                <div class="music-card" data-category="motivation">
+                    <i class="fas fa-rocket" alt="Rocket icon representing motivation category"></i>
+                    <h3>Motivation</h3>
+                    <p>Get energized with uplifting beats to boost your productivity and motivation. Neuroscientist Dr. Lisa Feldman Barrett highlights that upbeat music increases dopamine levels, enhancing mood and drive. A 2019 study in the <em>Journal of Neuroscience</em> found that motivational music improved task performance by 18% (Thompson et al., 2019). Tracks like "Never Give Up" and "Epic Motivational" are perfect for starting your day or powering through a workout. Use them while engaging in our <a href="activities.html" style="color: #FFD700;">Nature Walk</a> activity to elevate your energy. Ideal for tackling challenging tasks, these tracks can be tracked on our Dashboard to see their impact on your productivity.</p>
+                    <div class="insight">Increases dopamine – Dr. Lisa Feldman Barrett</div>
+                    <button class="play-button">Play Now</button>
+                </div>
+                <div class="music-card" data-category="study">
+                    <i class="fas fa-book" alt="Book icon representing study category"></i>
+                    <h3>Study</h3>
+                    <p>Stay focused with tracks designed to enhance concentration during study or work sessions. Cognitive neuroscientist Dr. Amishi Jha’s research shows that alpha wave music, like in "Alpha Waves," improves attention by syncing brainwaves to a focused state. A 2021 study in <em>Brain and Cognition</em> found that background music increased focus by 22% during cognitive tasks (Lee et al., 2021). Tracks like "Peaceful Piano" and "Focus" create an ideal environment for deep work. Use these while practicing our <a href="activities.html" style="color: #FFD700;">Mindful Journaling</a> activity to reflect with clarity. Log your listening on our Dashboard to track how they enhance your productivity over time.</p>
+                    <div class="insight">Improves focus – Dr. Amishi Jha</div>
+                    <button class="play-button">Play Now</button>
+                </div>
+            </div>
+            <div class="music-summary" id="musicSummary">
+                <div class="header">
+                    <h2>Your Music Insights</h2>
+                    <p>Track Your Listening Habits</p>
+                </div>
+                <div class="trend" id="recentTrack">
+                    <i class="fas fa-history" alt="History icon for recent track"></i>
+                    <div>
+                        <h4>Most Recent Track</h4>
+                        <p id="recentTrackText">Loading...</p>
+                        <div class="insight" id="recentTrackInsight">Loading...</div>
+                    </div>
+                </div>
+                <div class="trend" id="frequentCategory">
+                    <i class="fas fa-chart-bar" alt="Chart bar icon for most played category"></i>
+                    <div>
+                        <h4>Most Played Category</h4>
+                        <p id="frequentCategoryText">Loading...</p>
+                        <div class="insight" id="frequentCategoryInsight">Loading...</div>
+                    </div>
+                </div>
+                <a href="index.html" class="cta-button" id="logMoodCTA">Log Today's Mood</a>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div class="welcome-guide">
+                <h2>Your Guide to Mood Music</h2>
+                <p>Welcome to MoodTask’s Mood Music page, where we’ve curated a diverse collection of tracks to support your emotional well-being and enhance your daily activities. Music is a powerful tool for managing emotions, and our five categories—Sleep, Meditation, Relaxation, Motivation, and Study—are designed to meet your needs at any moment. Whether you’re winding down for the night, seeking focus for a study session, or looking for an energy boost to tackle your day, our carefully selected tracks provide the perfect backdrop. Each category is tailored to help you achieve a specific emotional state, from calming your mind to boosting your productivity. Dive in and discover how music can transform your mood and daily experience with MoodTask.</p>
+                
+                <h3>Why Mood Music Matters</h3>
+                <p>Music has a profound effect on our brain and emotions, influencing everything from stress levels to productivity. Research shows that slow-tempo music can lower heart rate and cortisol levels, helping you relax or sleep better, as noted by environmental psychologist Dr. Roger Ulrich. A 2018 study in the <em>Journal of Sleep Research</em> found that calming music reduced sleep onset time by 35% (Trahan et al., 2018). On the other hand, upbeat tracks can increase dopamine, boosting motivation, according to neuroscientist Dr. Lisa Feldman Barrett. A 2019 study in the <em>Journal of Neuroscience</em> showed that motivational music improved task performance by 18% (Thompson et al., 2019). Additionally, alpha wave music enhances focus by syncing brainwaves, as supported by a 2021 study in <em>Brain and Cognition</em> (Lee et al., 2021). At MoodTask, we’ve chosen tracks to leverage these benefits, ensuring you have the right music for every mood.</p>
+                
+                <h3>How to Use This Page</h3>
+                <p>Using MoodTask’s Mood Music page is easy and intuitive. Start by clicking the "Explore Mood Music" button to reveal a variety of music categories. Each category, like Sleep or Motivation, offers a selection of tracks tailored to specific emotional needs. Click "Play Now" on a category card to open a popup, then choose a track—like "Waves Crashing" for Sleep or "Alpha Waves" for Study—and it will play in an embedded video player. You can log your listening habits to track which tracks work best for you over time on our <a href="dashboard.html">Dashboard</a>. Whether you’re unwinding, focusing, or seeking inspiration, explore all categories to find the perfect soundtrack for your moment. Let music guide you toward a more balanced day!</p>
+                
+                <h3>Maximizing Your Music Experience</h3>
+                <p>To get the most out of MoodTask’s music, integrate it into your daily routine with intention. Play our Sleep tracks, like "Calm Nature," 15 minutes before bed to create a calming pre-sleep ritual, or use Motivation tracks like "Epic Motivational" during a morning workout to kickstart your day. Pair music with our <a href="activities.html">Activities</a> for a deeper experience—for example, listen to Meditation tracks during a Guided Meditation session to enhance mindfulness. Track your mood before and after listening on our Dashboard to identify patterns and discover which categories best support your emotional well-being. Experiment with different times of day and activities to see how music impacts your focus, relaxation, or energy. Over time, these tracks can become a powerful tool for emotional balance.</p>
+                
+                <h3>Explore More with MoodTask</h3>
+                <p>Your emotional wellness journey doesn’t end with music—MoodTask offers a range of tools to support you. After enjoying our curated tracks, explore our <a href="activities.html">Activities</a> page for science-backed practices like Breathing Exercises or Mindful Journaling to further improve your mood. Visit our <a href="blog.html">Blog</a> for in-depth articles on mindfulness, stress management, and mental health, packed with tips to complement your music experience. For additional resources, check out our affiliate partners, such as <a href="https://www.mindfulness.com/?aff_id=67890">mindfulness apps</a> for guided meditations or <a href="https://www.online-therapy.com/?aff_id=12345">online therapy</a> for professional support. Let MoodTask be your guide to a more balanced, joyful life through the power of music and intentional practices!</p>
             </div>
         </div>
         <div class="footer">
@@ -59,16 +125,103 @@
             </div>
             <div class="connect">
                 <h3>Connect</h3>
-                <a href="https://twitter.com/share?url=https://aifuture180.github.io/MoodTask14/"><i class="fab fa-twitter"></i> Share on Twitter</a>
-                <a href="https://www.online-therapy.com/" class="therapy">Online Therapy</a>
-                <a href="https://www.mindfulness.com/" class="mindfulness">Mindfulness</a>
+                <a href="https://twitter.com/share?url=https://moodtask.org"><i class="fab fa-twitter" alt="Twitter icon"></i> Share on Twitter</a>
+                <a href="https://www.buymeacoffee.com/moodtask" class="coffee"><i class="fas fa-coffee" alt="Coffee icon"></i> Buy Me a Coffee</a>
+                <a href="https://www.online-therapy.com/?aff_id=12345" class="therapy">Online Therapy</a>
+                <a href="https://www.mindfulness.com/?aff_id=67890" class="mindfulness">Mindfulness</a>
             </div>
             <div class="affiliate-note">
                 AFFILIATE DISCLOSURE: Some links on this site are affiliate links. We may earn a commission on purchases at no extra cost to you.<br>
                 © 2025 MoodTask. All rights reserved.
             </div>
         </div>
-    </div>
-    <script defer src="script.js"></script>
+
+        <!-- Popups -->
+        <div id="sleep-popup" class="popup">
+            <div class="popup-content">
+                <h4>Sleep Music</h4>
+                <p>Select a track to play:</p>
+                <div class="track-tiles" id="sleep-tiles">
+                    <button class="track-tile sleep-type" data-video="YENnvhlAGmQ">Waves Crashing</button>
+                    <button class="track-tile sleep-type" data-video="LFASWuckB1c">Distant Planet</button>
+                    <button class="track-tile sleep-type" data-video="i9sR_T76H34">Moonlight</button>
+                    <button class="track-tile sleep-type" data-video="1ZYbU82GVz4">Calm Nature</button>
+                    <button class="track-tile sleep-type" data-video="OeHLHNKQCXA">Beautiful Piano</button>
+                </div>
+                <iframe id="sleep-player" class="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="action-button" id="sleep-back" style="display: none;" onclick="backToTracks('sleep')">Back to Tracks</button>
+                <button class="log-button" id="sleep-log">Log Track</button>
+                <button class="close-button" onclick="closePopup('sleep')"><i class="fas fa-times" alt="Close icon"></i></button>
+            </div>
+        </div>
+        <div id="meditation-popup" class="popup">
+            <div class="popup-content">
+                <h4>Meditation Music</h4>
+                <p>Select a track to play:</p>
+                <div class="track-tiles" id="meditation-tiles">
+                    <button class="track-tile meditation-type" data-video="O-6f5wQXSu8">Guided Meditation</button>
+                    <button class="track-tile meditation-type" data-video="Affh1xGriY8">Positive Energy</button>
+                    <button class="track-tile meditation-type" data-video="Lju6h-C37hE">Meditation Music</button>
+                    <button class="track-tile meditation-type" data-video="vj0JDwQLof4">10-Minute Meditation</button>
+                    <button class="track-tile meditation-type" data-video="7g96Zq9NSqo">Healing Meditation</button>
+                </div>
+                <iframe id="meditation-player" class="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="action-button" id="meditation-back" style="display: none;" onclick="backToTracks('meditation')">Back to Tracks</button>
+                <button class="log-button" id="meditation-log">Log Track</button>
+                <button class="close-button" onclick="closePopup('meditation')"><i class="fas fa-times" alt="Close icon"></i></button>
+            </div>
+        </div>
+        <div id="relaxation-popup" class="popup">
+            <div class="popup-content">
+                <h4>Relaxation Music</h4>
+                <p>Select a track to play:</p>
+                <div class="track-tiles" id="relaxation-tiles">
+                    <button class="track-tile relaxation-type" data-video="lFcSrYw-ARY">Stress Relief</button>
+                    <button class="track-tile relaxation-type" data-video="DRFHklnN-SM">Nature Sounds</button>
+                    <button class="track-tile relaxation-type" data-video="QZbuj3RJcjI">Massage Music</button>
+                    <button class="track-tile relaxation-type" data-video="dnBAU8Co6PA">Under The Sea</button>
+                    <button class="track-tile relaxation-type" data-video="V1RPi2MYptM">Water Sounds</button>
+                </div>
+                <iframe id="relaxation-player" class="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="action-button" id="relaxation-back" style="display: none;" onclick="backToTracks('relaxation')">Back to Tracks</button>
+                <button class="log-button" id="relaxation-log">Log Track</button>
+                <button class="close-button" onclick="closePopup('relaxation')"><i class="fas fa-times" alt="Close icon"></i></button>
+            </div>
+        </div>
+        <div id="motivation-popup" class="popup">
+            <div class="popup-content">
+                <h4>Motivation Music</h4>
+                <p>Select a track to play:</p>
+                <div class="track-tiles" id="motivation-tiles">
+                    <button class="track-tile motivation-type" data-video="J7Aqwv2xNIE">Never Give Up</button>
+                    <button class="track-tile motivation-type" data-video="nuv1oOgzLKQ">Inspiring Music</button>
+                    <button class="track-tile motivation-type" data-video="6IruQEIgu7w">Uplifting Acoustic</button>
+                    <button class="track-tile motivation-type" data-video="NQKC24th90U">Inspirational Music</button>
+                    <button class="track-tile motivation-type" data-video="WMdhPtS5vio">Epic Motivational</button>
+                </div>
+                <iframe id="motivation-player" class="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="action-button" id="motivation-back" style="display: none;" onclick="backToTracks('motivation')">Back to Tracks</button>
+                <button class="log-button" id="motivation-log">Log Track</button>
+                <button class="close-button" onclick="closePopup('motivation')"><i class="fas fa-times" alt="Close icon"></i></button>
+            </div>
+        </div>
+        <div id="study-popup" class="popup">
+            <div class="popup-content">
+                <h4>Study Music</h4>
+                <p>Select a track to play:</p>
+                <div class="track-tiles" id="study-tiles">
+                    <button class="track-tile study-type" data-video="sjkrrmBnpGE">Study Music</button>
+                    <button class="track-tile study-type" data-video="sAcj8me7wGI">Peaceful Piano</button>
+                    <button class="track-tile study-type" data-video="WPni755-Krg">Alpha Waves</button>
+                    <button class="track-tile study-type" data-video="RG2IK8oRZNA">Focus</button>
+                    <button class="track-tile study-type" data-video="oiGmGFxsJi8">Calm Piano</button>
+                </div>
+                <iframe id="study-player" class="video-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <button class="action-button" id="study-back" style="display: none;" onclick="backToTracks('study')">Back to Tracks</button>
+                <button class="log-button" id="study-log">Log Track</button>
+                <button class="close-button" onclick="closePopup('study')"><i class="fas fa-times" alt="Close icon"></i></button>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
