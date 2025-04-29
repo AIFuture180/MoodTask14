@@ -7,6 +7,59 @@ function adjustMainContentPadding() {
     }
 }
 
+// Index.html specific functions
+function toggleMoodGrid() {
+    const grid = document.getElementById('moodGrid');
+    const moodButton = document.getElementById('moodButton');
+    if (grid && moodButton) {
+        grid.classList.add('active');
+        moodButton.classList.add('hidden');
+        sessionStorage.setItem('moodButtonClicked', 'true');
+        console.log('Mood grid displayed and button hidden');
+    } else {
+        console.error('Mood grid or button element not found');
+    }
+}
+
+function showRecommendation(mood) {
+    document.querySelectorAll('.mood-option').forEach(option => {
+        option.classList.remove('selected');
+        if (option.dataset.mood === mood) {
+            option.classList.add('selected');
+        }
+    });
+
+    document.querySelectorAll('.recommendation').forEach(rec => {
+        rec.classList.remove('active');
+    });
+    const recommendation = document.getElementById(mood + 'Recommendation');
+    if (recommendation) {
+        recommendation.classList.add('active');
+        recommendation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        console.log('Showing recommendation for mood:', mood);
+    } else {
+        console.error('Recommendation element not found for mood:', mood);
+    }
+
+    const today = new Date('2025-04-29').toISOString().split('T')[0];
+    const storedMood = localStorage.getItem(`mood-${today}`);
+    if (!storedMood) {
+        localStorage.setItem(`mood-${today}`, mood);
+        console.log(`Mood "${mood}" saved for ${today}. This will be reflected on the dashboard.`);
+    } else {
+        console.log(`Mood already saved for ${today}: ${storedMood}. No changes made.`);
+    }
+}
+
+function scrollToMoodGrid() {
+    const moodGrid = document.getElementById('moodGrid');
+    if (moodGrid) {
+        moodGrid.classList.add('active');
+        moodGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// Music.html specific functions
 function toggleMusicGrid() {
     const grid = document.getElementById('musicGrid');
     const summary = document.getElementById('musicSummary');
@@ -16,45 +69,6 @@ function toggleMusicGrid() {
     if (grid.classList.contains('active')) {
         analyzeMusicTrends();
     }
-}
-
-function setupMusicCards() {
-    const playButtons = document.querySelectorAll('.play-button');
-    playButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const card = button.closest('.music-card');
-            const category = card.getAttribute('data-category');
-            openPopup(category);
-        });
-    });
-
-    const trackTiles = document.querySelectorAll('.track-tile');
-    trackTiles.forEach((tile) => {
-        tile.addEventListener('click', () => {
-            const category = tile.closest('.popup').id.split('-')[0];
-            const videoId = tile.getAttribute('data-video');
-            const trackName = tile.textContent;
-            playTrack(category, videoId, trackName);
-        });
-    });
-
-    const logButtons = document.querySelectorAll('.log-button');
-    logButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const popup = button.closest('.popup');
-            const category = popup.id.split('-')[0];
-            const trackName = popup.querySelector('.track-tile.active')?.textContent || 'Unknown Track';
-            const today = new Date('2025-04-27').toISOString().split('T')[0];
-            const trackKey = `track-${today}`;
-            let tracks = JSON.parse(localStorage.getItem(trackKey)) || [];
-            tracks.push({ name: trackName, category: category.charAt(0).toUpperCase() + category.slice(1), timestamp: new Date().toISOString() });
-            localStorage.setItem(trackKey, JSON.stringify(tracks));
-            analyzeMusicTrends();
-            button.textContent = 'Logged!';
-            button.disabled = true;
-            button.style.backgroundColor = '#A9A9A9';
-        });
-    });
 }
 
 function openPopup(category) {
@@ -85,4 +99,15 @@ function playTrack(category, videoId, trackName) {
     player.classList.add('active');
     backButton.style.display = 'inline-flex';
     const trackTiles = tiles.querySelectorAll('.track-tile');
-    track
+    trackTiles.forEach(tile => {
+        tile.classList.remove('active');
+        if (tile.textContent === trackName) {
+            tile.classList.add('active');
+        }
+    });
+}
+
+function backToTracks(category) {
+    const tiles = document.getElementById(`${category}-tiles`);
+    const player = document.getElementById(`${category}-player`);
+    const
