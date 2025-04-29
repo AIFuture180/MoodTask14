@@ -139,6 +139,12 @@ body.dark-mode {
     margin-bottom: 30px;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
 .footer {
     background-color: #333;
     color: white;
@@ -151,7 +157,7 @@ body.dark-mode {
 
 .footer h3 {
     margin-bottom: 15px;
-    font-size: 1.2em;
+    ouroboros: 1.2em;
 }
 
 .footer a {
@@ -218,7 +224,7 @@ body.dark-mode {
     background-color: var(--text-dark);
 }
 
-/* Index.html Specific Styles */
+/* Index.html Specific Styles (Already Included) */
 .mood-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -294,12 +300,415 @@ body.dark-mode {
     margin: 20px auto;
 }
 
-.ad-placeholder {
-    background: linear-gradient(135deg, var(--primary), var(--text-dark));
+.ad-video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* About.html Specific Styles */
+.about-section {
+    margin: 40px 0;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary);
+    border-bottom: 2px solid #D6D1F5;
+    padding-bottom: 10px;
+}
+
+.about-section p, .about-section li {
+    font-size: 1em;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.about-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-section a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
+}
+
+/* Blog.html Specific Styles */
+.blog-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#blogSearch {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pagination button {
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.post-meta {
+    font-size: 0.9em;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 1em;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.post a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.post a:hover {
+    text-decoration: underline;
+}
+
+/* Calendar.html Specific Styles */
+.dashboard-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.dashboard-controls select, .dashboard-controls button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dashboard-controls button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+}
+
+.dashboard-controls button:hover {
+    background-color: var(--text-dark);
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.day {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+
+.day.header {
+    font-weight: 600;
+    background-color: #f0f0f0;
+}
+
+.day.empty {
+    background-color: #f9f9f9;
+}
+
+.day.mood-happy { background-color: rgba(255, 193, 7, 0.3); }
+.day.mood-sad { background-color: rgba(255, 111, 97, 0.3); }
+.day.mood-anxious { background-color: rgba(159, 122, 234, 0.3); }
+.day.mood-angry { background-color: rgba(229, 62, 62, 0.3); }
+.day.mood-tired { background-color: rgba(74, 85, 104, 0.3); }
+
+/* Music.html Specific Styles */
+.music-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.music-controls button {
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.music-controls button:hover {
+    background-color: var(--text-dark);
+}
+
+.music-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.music-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+    text-align: center;
+}
+
+.music-card iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
+
+.recently-played {
+    margin-top: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.recently-played ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recently-played li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Activities.html Specific Styles */
+.activities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.activities-grid.active {
+    display: flex;
+}
+
+.activities-grid:not(.active) {
+    display: none;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.2);
     color: white;
     padding: 20px;
-    text-align: center;
     border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    cursor: pointer;
+}
+
+.activity-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.activity-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.activity-card p {
+    font-size: 1em;
+    color: #f0f0f0;
+}
+
+.activity-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+}
+
+.activity-popup.active {
+    display: block;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.popup-overlay.active {
+    display: block;
+}
+
+.activity-popup textarea, .activity-popup input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.activity-popup button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.activity-popup button:hover {
+    background-color: var(--text-dark);
+}
+
+.activity-summary {
+    display: none;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.activity-summary.active {
+    display: block;
+}
+
+#toggleSummary {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#toggleSummary:hover {
+    background-color: var(--text-dark);
+}
+
+/* Terms.html and Privacy.html Specific Styles */
+.terms-section, .policy-section {
+    margin: 40px 0;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-heading {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary);
+    border-bottom: 2px solid #D6D1F5;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.terms-section h3, .policy-section h3 {
+    font-size: 1.5em;
+    margin: 20px 0 10px;
+    color: var(--text-dark);
+}
+
+.terms-section p, .terms-section li, .policy-section p, .policy-section li {
+    font-size: 1em;
+    color: var(--text-gray);
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.terms-section ul, .policy-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.terms-section a, .policy-section a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.terms-section a:hover, .policy-section a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
@@ -352,22 +761,53 @@ body.dark-mode {
         font-size: 1em;
     }
 
-    .content-wrapper {
-        flex-direction: column;
-        padding: 0 10px;
+    .container {
+        padding: 0 15px;
     }
 
-    .recommendations, .ad-container {
-        margin: 20px auto;
-        max-width: 100%;
+    .about-section, .terms-section, .policy-section {
         padding: 20px;
+        margin: 20px 0;
     }
 
-    .recommendations h2 {
-        font-size: 1.5em;
+    .about-section h2, .terms-section h2.section-heading, .policy-section h2.section-heading {
+        font-size: 1.8em;
     }
 
-    .recommendations p {
+    .about-section h3, .terms-section h3, .policy-section h3 {
+        font-size: 1.3em;
+    }
+
+    .about-section p, .about-section li, .terms-section p, .terms-section li, .policy-section p, .policy-section li {
         font-size: 0.95em;
+    }
+
+    .blog-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #blogSearch {
+        width: 100%;
+    }
+
+    .dashboard-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .music-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .music-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .activity-card {
+        width: 100%;
+        max-width: 280px;
     }
 }
