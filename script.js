@@ -7,7 +7,6 @@ function adjustMainContentPadding() {
     }
 }
 
-// Index.html specific functions
 function toggleMoodGrid() {
     const grid = document.getElementById('moodGrid');
     const moodButton = document.getElementById('moodButton');
@@ -41,7 +40,8 @@ function showRecommendation(mood) {
         console.error('Recommendation element not found for mood:', mood);
     }
 
-    const today = new Date('2025-04-29').toISOString().split('T')[0];
+    // Save the mood to localStorage for tracking on the dashboard
+    const today = new Date().toISOString().split('T')[0]; // e.g., 2025-04-29
     const storedMood = localStorage.getItem(`mood-${today}`);
     if (!storedMood) {
         localStorage.setItem(`mood-${today}`, mood);
@@ -59,73 +59,106 @@ function scrollToMoodGrid() {
     }
 }
 
-// Music.html specific functions
-function toggleMusicGrid() {
-    const grid = document.getElementById('musicGrid');
-    const summary = document.getElementById('musicSummary');
-    if (!grid || !summary) return;
-    grid.classList.toggle('active');
-    summary.classList.toggle('active');
-    if (grid.classList.contains('active')) {
-        analyzeMusicTrends();
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-bar .nav-links a');
+    const mainContent = document.querySelector('.main-content');
+    const moodButton = document.getElementById('moodButton');
+    const moodGrid = document.getElementById('moodGrid');
+
+    mainContent.classList.add('fade-in');
+    adjustMainContentPadding();
+
+    // Check sessionStorage to determine initial state
+    const buttonClicked = sessionStorage.getItem('moodButtonClicked');
+    if (buttonClicked === 'true') {
+        moodButton.classList.add('hidden');
+        moodGrid.classList.add('active');
+        console.log('Mood grid shown on page load (sessionStorage flag present)');
+    } else {
+        console.log('Mood button shown on page load (no sessionStorage flag)');
     }
-}
 
-function openPopup(category) {
-    const popup = document.getElementById(`${category}-popup`);
-    popup.style.display = 'flex';
-    const logButton = popup.querySelector('.log-button');
-    logButton.classList.add('active');
-    logButton.textContent = 'Log Track';
-    logButton.disabled = false;
-    logButton.style.backgroundColor = '#6BCB77';
-}
-
-function closePopup(category) {
-    const popup = document.getElementById(`${category}-popup`);
-    popup.style.display = 'none';
-    const player = document.getElementById(`${category}-player`);
-    player.classList.remove('active');
-    player.src = '';
-    backToTracks(category);
-}
-
-function playTrack(category, videoId, trackName) {
-    const tiles = document.getElementById(`${category}-tiles`);
-    const player = document.getElementById(`${category}-player`);
-    const backButton = document.getElementById(`${category}-back`);
-    tiles.style.display = 'none';
-    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    player.classList.add('active');
-    backButton.style.display = 'inline-flex';
-    const trackTiles = tiles.querySelectorAll('.track-tile');
-    trackTiles.forEach(tile => {
-        tile.classList.remove('active');
-        if (tile.textContent === trackName) {
-            tile.classList.add('active');
-        }
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            mainContent.classList.remove('fade-in');
+            mainContent.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = link.href;
+            }, 500);
+        });
     });
-}
 
-function backToTracks(category) {
-    const tiles = document.getElementById(`${category}-tiles`);
-    const player = document.getElementById(`${category}-player`);
-    const backButton = document.getElementById(`${category}-back`);
-    tiles.style.display = 'flex';
-    player.classList.remove('active');
-    player.src = '';
-    backButton.style.display = 'none';
-}
+    if (moodButton) {
+        moodButton.addEventListener('click', toggleMoodGrid);
+        moodButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMoodGrid();
+            }
+        });
+        console.log('Mood button event listener attached');
+    } else {
+        console.error('Mood button not found');
+    }
 
-function logTrack(category, trackName) {
-    const logButton = document.querySelector(`#${category}-popup .log-button`);
-    logButton.textContent = 'Logged!';
-    logButton.disabled = true;
-    logButton.style.backgroundColor = '#ccc';
-    const today = new Date('2025-04-29').toISOString().split('T')[0];
-    const logKey = `track-${today}`;
-    const existingLogs = JSON.parse(localStorage.getItem(logKey)) || [];
-    if (!existingLogs.includes(trackName)) {
-        existingLogs.push(trackName);
-        localStorage.setItem(logKey, JSON.stringify(existingLogs));
-        console.log(`Logged track "${trackName}" for ${today}.`);
+    const moodOptions = document.querySelectorAll('.mood-option');
+    if (moodOptions.length > 0) {
+        moodOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const mood = option.dataset.mood;
+                showRecommendation(mood);
+            });
+            option.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const mood = option.dataset.mood;
+                    showRecommendation(mood);
+                }
+            });
+        });
+        console.log('Mood option event listeners attached:', moodOptions.length);
+    } else {
+        console.error('No mood options found');
+    }
+
+    const backButtons = document.querySelectorAll('.back-button');
+    backButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelectorAll('.recommendation').forEach(rec => {
+                rec.classList.remove('active');
+            });
+            scrollToMoodGrid();
+        });
+        button.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                document.querySelectorAll('.recommendation').forEach(rec => {
+                    rec.classList.remove('active');
+                });
+                scrollToMoodGrid();
+            }
+        });
+    });
+
+    const adPlayer = document.getElementById('adPlayer');
+    if (adPlayer) {
+        console.log('Ad player initialized with autoplay and loop');
+        adPlayer.addEventListener('click', (e) => {
+            if (e.target.tagName === 'VIDEO') {
+                console.log('Ad player video clicked, redirecting to affiliate link');
+            }
+        });
+        const video = adPlayer.querySelector('video');
+        if (video) {
+            video.play().catch(error => {
+                console.error('Autoplay failed:', error);
+            });
+        }
+    } else {
+        console.error('Ad player element not found');
+    }
+
+    window.addEventListener('resize', adjustMainContentPadding);
+});
