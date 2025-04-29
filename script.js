@@ -110,4 +110,22 @@ function playTrack(category, videoId, trackName) {
 function backToTracks(category) {
     const tiles = document.getElementById(`${category}-tiles`);
     const player = document.getElementById(`${category}-player`);
-    const
+    const backButton = document.getElementById(`${category}-back`);
+    tiles.style.display = 'flex';
+    player.classList.remove('active');
+    player.src = '';
+    backButton.style.display = 'none';
+}
+
+function logTrack(category, trackName) {
+    const logButton = document.querySelector(`#${category}-popup .log-button`);
+    logButton.textContent = 'Logged!';
+    logButton.disabled = true;
+    logButton.style.backgroundColor = '#ccc';
+    const today = new Date('2025-04-29').toISOString().split('T')[0];
+    const logKey = `track-${today}`;
+    const existingLogs = JSON.parse(localStorage.getItem(logKey)) || [];
+    if (!existingLogs.includes(trackName)) {
+        existingLogs.push(trackName);
+        localStorage.setItem(logKey, JSON.stringify(existingLogs));
+        console.log(`Logged track "${trackName}" for ${today}.`);
